@@ -10,6 +10,21 @@ Within a particular ecosystem, there may be a common way of installing things, s
 ## Usage
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
+## How to run the game
+
+You need to have all the files cloned from this repo. 
+
+package.json contains most of the dependancies but you will also need npm. 
+So run: 
+"""npm instal"""
+Then run:
+"""npm run start"""
+to get all the dependencies in package.json into your project.
+
+There should then be a web page that can be found at:
+localhost:8080
+(8080 is a port number inside the project files that can be changed.)
+
 ## Support
 Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
