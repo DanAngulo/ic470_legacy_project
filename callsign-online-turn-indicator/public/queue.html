@@ -192,6 +192,11 @@
           document.getElementById('messages').innerHTML += 
           'Message from server: ' + msg.text + "<br>";
           break;
+        case "turn_end":
+          console.log(msg.text)
+          document.getElementById('messages').innerHTML += 
+          document.getElementById('lobbyID').innerHTML + 'Someones turn has ended ' + "<br>";
+          break;
          case "roll":
           document.getElementById('rolls').innerHTML += 
           msg.text + "<br>";
