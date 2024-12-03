@@ -259,6 +259,7 @@
     let move = 0;
     let relocate = 0;
     let relnum = 0;
+    let player = "player";
     webSocket.onmessage = (event) => {
       const msg = JSON.parse(event.data);
       switch (msg.type) {
@@ -267,6 +268,11 @@
           document.getElementById('messages').innerHTML +=
           'Message from server: ' + msg.text + "<br>";
           break;
+          case "turn_end":
+            console.log(msg.text)
+            document.getElementById('messages').innerHTML +=
+            player + ' turn has ended ' + "<br>";
+            break;
          case "created":
           document.getElementById('lobbyID').innerHTML +=
            msg.text + "<br>";
@@ -283,10 +289,12 @@
            break;
          case "player-num":
           if(msg.text.includes("blue")){
+            player = "red";
             color = "#2e28d1ed"
             document.getElementById("top").innerHTML = '<div style="text-align:center; color:white; background-color: #2e28d1ed; width:100%"><h1>C A L L S I G N</h1><h2>You are the ' + msg.text + ' player!</h2></div>';
           }
           else if(msg.text.includes("red")){
+            player = "blue";
             color = "rgba(227, 20, 20, 0.861)"
             document.getElementById("top").innerHTML = '<div style="text-align:center; color:white; background-color: #ea0a0aed; width:100%"><h1>C A L L S I G N</h1><h2>You are the ' + msg.text + ' player!</h2></div>';
           }
