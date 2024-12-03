@@ -173,10 +173,12 @@ wss2.on('connection', ws => {
                     var result = lobbyDict.get(lobbyID)[4].split(':');
                     var full = lobbyDict.get(lobbyID)[4];
                     console.log(result)
-                    for(let i = 0; i < result.length; i++){
+                    for(let i = 1; i < result.length; i++){
                         if(result[i].includes("end")){
                             sendMessage(lobbyDict.get(lobbyID)[1], "turn-result", result[i+1])
                             sendMessage(lobbyDict.get(lobbyID)[2], "turn-result", result[i+1])
+                            sendMessage(lobbyDict.get(lobbyID)[1], "turn_end", result[i+1])
+                            sendMessage(lobbyDict.get(lobbyID)[2], "turn_end", result[i+1])
                         }
                         if(result[i].includes("combat")){
                             player = result[i+1].split(',');
